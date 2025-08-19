@@ -1,0 +1,16 @@
+
+// render.yaml
+services:
+  - type: web
+    name: express-api
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDotEnv: true
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true
+    branch: main
