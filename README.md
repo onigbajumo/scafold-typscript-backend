@@ -55,13 +55,14 @@ src/
 git clone https://github.com/onigbajumo/scafold-typscript-backend.git
 cd YOUR_REPO_NAME
 
-Install Dependencies
+### 2.  Install Dependencies
+
 npm install
 
 Run in Dev Mode
 npm run dev
 
-Build & Run Production
+### 3. Build & Run Production
 npm run build
 npm start
 
