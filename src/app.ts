@@ -18,20 +18,17 @@ dotenv.config();
 export const app = express();
 // trust proxy for secure cookies behind Render/NGINX/etc.
 app.set('trust proxy', 1);
+// CORS configuration
 app.use(cors(corsOptions));
-// app.options('*', cors(corsOptions));
 
 
 // Process-level logging for crashes
 wireProcessLogging();
 
-
 app.use(express.json());
 
 //security middlewares
 applySecurityMiddlewares(app);
-
-// CORS configuration
 
 // HTTP request logging (must come after proxy/cors if you want accurate data)
 app.use(httpLogger);
