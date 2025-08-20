@@ -1,0 +1,64 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs
+*.log
+logs/
+*.pid
+*.seed
+*.pid.lock
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# dotenv environment variables
+.env
+.env.*.local
+
+# Build and cache
+dist/
+build/
+.cache/
+.tmp/
+tsconfig.tsbuildinfo
+
+# IDE / Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Swagger / API docs generated files
+swagger.json
+swagger.yaml
+
+# Drizzle ORM migration files (if generated in build)
+drizzle/migrations/*.sql
+drizzle/migrations/*.tsbuildinfo
+
+# Coverage
+coverage/
+*.lcov
+
+# Database dumps
+*.dump
+*.sql
+
+# Misc
+*.tgz
+*.tar.gz

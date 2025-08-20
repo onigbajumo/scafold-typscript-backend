@@ -81,7 +81,6 @@ src/
      └─ errorHandler.ts
 drizzle.config.ts             # Drizzle Kit config (dialect/url)
 drizzle/                      # Generated migrations (output)
-public/swagger/               # (optional) static Swagger bundle
 
 🛠 Prerequisites
 
