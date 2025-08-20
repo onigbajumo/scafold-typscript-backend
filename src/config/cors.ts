@@ -10,12 +10,11 @@ const explicit = (process.env.ALLOWED_ORIGINS || '')
   .map(normalize)
   .filter(Boolean);
 
-// allow http://localhost:any and http://127.0.0.1:any in dev
 const localhostPattern = /^http:\/\/(localhost|127\.0\.0\.1):\d+$/;
 
 export const corsOptions: CorsOptions = {
   origin(origin, cb) {
-    // curl/Postman/server-side fetch sometimes has no Origin
+
     if (!origin) return cb(null, true);
 
     const o = normalize(origin);

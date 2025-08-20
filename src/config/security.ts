@@ -1,4 +1,3 @@
-// src/config/security.ts
 import helmet from 'helmet';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
