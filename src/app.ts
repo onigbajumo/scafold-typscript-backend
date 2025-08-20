@@ -1,19 +1,41 @@
 // src/app.ts
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors'
 import path from 'path';
 import swaggerUi from 'swagger-ui-express';
 import redoc from 'redoc-express';
 
 import userRoutes from './routes/user.route';
 import swaggerSpec from './config/swagger'; 
+import { corsOptions } from './config/cors';
+import { applySecurityMiddlewares } from './config/security';
+import { httpLogger, wireProcessLogging, logger } from './config/logger';
+import { errorHandler } from './middlewares/errorHandler';
 
 dotenv.config();
 
 export const app = express();
+// trust proxy for secure cookies behind Render/NGINX/etc.
+app.set('trust proxy', 1);
+app.use(cors(corsOptions));
+// app.options('*', cors(corsOptions));
+
+
+// Process-level logging for crashes
+wireProcessLogging();
+
+
 app.use(express.json());
 
-app.use('/api/users', userRoutes);
+//security middlewares
+applySecurityMiddlewares(app);
+
+// CORS configuration
+
+// HTTP request logging (must come after proxy/cors if you want accurate data)
+app.use(httpLogger);
+
 
 app.get('/openapi.json', (_req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -35,6 +57,9 @@ app.get(
     specUrl: '/openapi.json',
   })
 );
+
+//Routes
+app.use('/api/users', userRoutes);
 
 
 app.get('/', (_req, res) => {
@@ -61,3 +86,7 @@ app.get('/', (_req, res) => {
     </html>
   `);
 });
+
+logger.info('App initialized');
+
+app.use(errorHandler);
