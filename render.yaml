@@ -1,16 +1,16 @@
-
-// render.yaml
 services:
   - type: web
-    name: express-api
+    name: ts-express-scaffold
     runtime: node
-    plan: free
     buildCommand: npm install && npm run build
     startCommand: npm start
+    plan: free
     envVars:
-      - key: DATABASE_URL
-        fromDotEnv: true
       - key: NODE_ENV
         value: production
-    autoDeploy: true
-    branch: main
+      - key: DATABASE_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: COOKIE_SECRET
+        generateValue: true
