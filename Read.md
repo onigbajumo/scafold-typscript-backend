@@ -1,16 +1,12 @@
-🚀 TypeScript Express Scaffold
+# 🚀 TypeScript Express Scaffold
 
-
-
-
-
-
-
-
-
-
-
-
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
+![Express](https://img.shields.io/badge/Express-4.x-lightgrey?logo=express)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14%2B-316192?logo=postgresql&logoColor=white)
+![Drizzle ORM](https://img.shields.io/badge/ORM-Drizzle-00B894)
+![Swagger UI](https://img.shields.io/badge/Docs-Swagger%20UI-85EA2D?logo=swagger)
+![Redoc](https://img.shields.io/badge/Docs-Redoc-FB3F4A)
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 
 
 A lightweight, production-ready TypeScript + Express starter for building REST APIs.
